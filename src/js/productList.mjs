@@ -24,7 +24,5 @@ export default async function productList(selector, category){
         el.insertAdjacentHTML("afterbegin", productCartTemplate(product));
 
     });
- 
-   
-  
+
 }

@@ -29,3 +29,35 @@ export function getParam(param) {
 
   return product;
 }
+
+export async function renderWithTemplates(templateFn, el, data, callback, position="afterbegin", clear=true) {
+  if (clear) {
+    el.innerHTML = "";
+  }
+  const htmlString = await templateFn(data);
+  el.insertAdjacentHTML(position, htmlString);
+  if (callback) {
+    callback(data);
+  }
+};
+
+function loadTemplate(path) {
+  return async function () {
+    const res = await fetch(path);
+    if (res.ok) {
+    const html = await res.text();
+    return html;
+    }
+  };
+}
+
+export async function loadHeaderFooter() {
+  const headerTemplateFn = loadTemplate("/partials/header.html");
+  console.log(headerTemplateFn);
+  const footerTemplateFn = loadTemplate("/partials/footer.html");
+  const elHeader = document.querySelector("#headerTem");
+  const elFooter = document.querySelector("#footerTem");
+
+  renderWithTemplates(headerTemplateFn, elHeader);
+  renderWithTemplates(footerTemplateFn, elFooter); 
+}
