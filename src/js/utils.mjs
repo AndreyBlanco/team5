@@ -25,10 +25,16 @@ export function setClick(selector, callback) {
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get('product');
-
-  return product;
+  return urlParams.get(param);
 }
+
+export function renderListWithTemplate(templateFn, el, list, position="afterbegin", clear=true) {
+  if (clear) {
+    el.innerHTML = "";
+  }
+  const htmlString = list.map(templateFn);
+  el.insertAdjacentHTML(position, htmlString.join(""));
+};
 
 export async function renderWithTemplates(templateFn, el, data, callback, position="afterbegin", clear=true) {
   if (clear) {
@@ -53,7 +59,6 @@ function loadTemplate(path) {
 
 export async function loadHeaderFooter() {
   const headerTemplateFn = loadTemplate("/partials/header.html");
-  console.log(headerTemplateFn);
   const footerTemplateFn = loadTemplate("/partials/footer.html");
   const elHeader = document.querySelector("#headerTem");
   const elFooter = document.querySelector("#footerTem");

@@ -1,10 +1,9 @@
 import { getData } from "./productData.mjs";
-
+import { renderListWithTemplate } from "./utils.mjs";
 
 function productCartTemplate(product) {
-    console.log(product);
     return `<li class="product-card">
-    <a href="product_pages/index.html?product=">
+    <a href="product_pages/index.html?product=${product.Id}">
     <img
       src=${product.Image}
       alt="Image of ${product.Name}"
@@ -16,13 +15,11 @@ function productCartTemplate(product) {
 }
 
 export default async function productList(selector, category){
-    var el = document.querySelector(selector);
-   
+    console.log(selector);
+    const el = document.querySelector(selector);
+    console.log(el);
     const products = await getData(category);
-   
-    products.forEach(product => {
-        el.insertAdjacentHTML("afterbegin", productCartTemplate(product));
-
-    });
+    console.log(products);   
+    renderListWithTemplate(productCartTemplate, el, products);
 
 }

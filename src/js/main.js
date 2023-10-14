@@ -1,7 +1,7 @@
 import productList from "./productList.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 
-productList(".product-list");
+productList(".product-list", "tents");
 
 loadHeaderFooter();
 
