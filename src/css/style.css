@@ -220,3 +220,31 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.imgCat {
+  width: 100px;
+}
+
+#productcats {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  margin: auto;
+  max-width: 600px;
+}
+
+#tentsCat {
+  grid-column: 1/2;
+  align-content: center;
+}
+
+#backpacksCat {
+  grid-column: 2/3;
+}
+
+#sleepingbCat {
+  grid-column: 3/4;
+}
+
+#hammocksCat {
+  grid-column: 4/5;
+}
