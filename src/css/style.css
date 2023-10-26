@@ -202,6 +202,59 @@ button {
   grid-column: 3;
 }
 
+
+
+footer {
+  font-size: var(--small-font);
+  padding: 1em;
+}
+
+.imgCat {
+  width: 67%;
+  margin-left: 16.5%;
+
+}
+
+.product-grid {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  margin: auto;
+  max-width: 500px;
+  padding: 0;
+}
+
+.product-grid a {
+  text-decoration: none;
+  color: var(--dark-grey);
+}
+
+.product-grid h2 {
+  font-size: 1rem;
+  text-align: center;
+}
+
+#tentsCat {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+#backpacksCat {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+#sleepingbCat {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+#hammocksCat {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -214,9 +267,25 @@ button {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
   }
-}
-
-footer {
-  font-size: var(--small-font);
-  padding: 1em;
+  .product-grid {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin: auto;
+    max-width: 500px;
+  }
+  #tentsCat {
+    grid-column: 1/2;
+  }
+  
+  #backpacksCat {
+    grid-column: 2/3;
+  }
+  
+  #sleepingbCat {
+    grid-column: 3/4;
+  }
+  
+  #hammocksCat {
+    grid-column: 4/5;
+  }
 }
