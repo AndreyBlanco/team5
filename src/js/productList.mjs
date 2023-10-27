@@ -1,4 +1,4 @@
-import { getData } from "./productData.mjs";
+import { getProductsByCategory } from "./externalServices.mjs";
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCartTemplate(product) {
@@ -18,7 +18,7 @@ export default async function productList(selector, category){
     console.log(selector);
     const el = document.querySelector(selector);
     console.log(el);
-    const products = await getData(category);
+    const products = await getProductsByCategory(category);
     console.log(products);   
     renderListWithTemplate(productCartTemplate, el, products);
     document.querySelector(".title").innerHTML = category;    
