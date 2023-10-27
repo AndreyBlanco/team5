@@ -255,6 +255,18 @@ footer {
   grid-row: 2/3;
 }
 
+form {
+  width: 300px;
+}
+
+fieldset label, fieldset input {
+  display: block;
+}
+
+fieldset input {
+  width: 100%;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
