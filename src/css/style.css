@@ -202,8 +202,6 @@ button {
   grid-column: 3;
 }
 
-
-
 footer {
   font-size: var(--small-font);
   padding: 1em;
@@ -212,7 +210,6 @@ footer {
 .imgCat {
   width: 67%;
   margin-left: 16.5%;
-
 }
 
 .product-grid {
@@ -259,7 +256,8 @@ form {
   width: 300px;
 }
 
-fieldset label, fieldset input {
+fieldset label,
+fieldset input {
   display: block;
 }
 
@@ -288,15 +286,15 @@ fieldset input {
   #tentsCat {
     grid-column: 1/2;
   }
-  
+
   #backpacksCat {
     grid-column: 2/3;
   }
-  
+
   #sleepingbCat {
     grid-column: 3/4;
   }
-  
+
   #hammocksCat {
     grid-column: 4/5;
   }
