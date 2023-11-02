@@ -1,3 +1,5 @@
+import { doc } from "prettier";
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -65,4 +67,23 @@ export async function loadHeaderFooter() {
 
   renderWithTemplates(headerTemplateFn, elHeader);
   renderWithTemplates(footerTemplateFn, elFooter); 
+}
+
+export function alertMessage(message, scroll=true) {
+  const alert = document.createElement('div');
+  alert.classList.add('alert');
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+
+  alert.addEventListener('click', function(e) {
+    main.removeChild(this);
+    /*if ( ) {
+      main.removeChild(this);
+    }*/
+  });
+
+  const main= document.querySelector('main');
+  main.prepend(alert);
+
+  if (scroll) window.scrollTo(0,0);
+
 }

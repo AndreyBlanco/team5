@@ -18,7 +18,7 @@
     <main class="divider">
       <h2>Review & Place your Order</h2>
       <section class="checkout-form">
-        <form name="checkout">
+        <form name="checkout" >
           <fieldset>
             <legend>Shipping</legend>
             <label for="fname">First Name</label>
@@ -37,11 +37,11 @@
           <fieldset>
             <legend>Payment</legend>
             <label for="cardNumber">Card Number</label>
-            <input name="cardNumber" id="cardNumber" required />
+            <input name="cardNumber" id="cardNumber" minlength="16" maxlength="16" required />
             <label for="expiration">Expiration</label>
-            <input name="expiration" id="expiration" required />
+            <input name="expiration" id="expiration" pattern=^\d{2}\/\d{2}$ required />
             <label for="code">Security Code</label>
-            <input name="code" id="code" required />
+            <input name="code" id="code" minlength="3" maxlength="3" required />
           </fieldset>
           <fieldset class="checkout-summary">
             <legend>Order Summary</legend>

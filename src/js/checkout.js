@@ -1,4 +1,4 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, alertMessage } from "./utils.mjs";
 import checkoutProcess from "./checkoutProcess.mjs";
 
 loadHeaderFooter();
@@ -12,7 +12,20 @@ document
     checkoutProcess.calculateOrdertotal.bind(checkoutProcess)
   );
 
-document.forms["checkout"].addEventListener("submit", (e) => {
+/*document.forms["checkout"].addEventListener("submit", (e) => {
   e.preventDefault();
   checkoutProcess.checkout(e.target);
+});*/
+
+document.querySelector('#checkoutSubmit').addEventListener('click', (e) => {
+  e.preventDefault();
+  var myForm = document.forms[0];
+  /*console.log(myForm.reportValidity());*/
+  var chk_status = myForm.checkValidity();
+  myForm.reportValidity();
+  if (chk_status) {
+    checkoutProcess.checkout(myForm);
+  } else {
+    alertMessage(myForm.reportValidity());
+  }
 });
