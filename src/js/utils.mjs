@@ -1,3 +1,5 @@
+import { doc } from "prettier";
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -65,4 +67,62 @@ export async function loadHeaderFooter() {
 
   renderWithTemplates(headerTemplateFn, elHeader);
   renderWithTemplates(footerTemplateFn, elFooter); 
+}
+
+export function alertMessage(message, scroll=true) {
+  const alert = document.createElement('div');
+  alert.classList.add('alert');
+  alert.innerHTML = `<p>${setAlertMessage(message)}</p><span>X</span>`;
+
+  alert.addEventListener('click', function(e) {
+    if (e.target.tagName == "SPAN" ) {
+      main.removeChild(this);
+    }
+  });
+
+  const main= document.querySelector('main');
+  main.prepend(alert);
+
+  if (scroll) window.scrollTo(0,0);
+
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) =>
+    document.querySelector("main").removeChild(alert)
+  );
+}
+
+function setAlertMessage(message) {
+  var errorMessage = ""
+  switch (message) {
+    case 0:
+      return "Add a First Name";
+      break;
+    case 1:
+      return "Add a Last Name";
+      break;
+    case 2:
+      return "Add a Street";
+      break;
+    case 3:
+      return "Add a City";
+      break;
+    case 4:
+      return "Add a State";
+      break;
+    case 5:
+      return "Add a Zip code";
+      break;
+    case 6:
+      return "Add a valid Card Number";
+      break;
+    case 7:
+      return "Add a valid Expiration Date MM/YY";
+      break;
+    case 8:
+      return "Add a valid three digits Security Code";
+      break;
+    };
 }

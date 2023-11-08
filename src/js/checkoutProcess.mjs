@@ -87,9 +87,10 @@ const checkoutProcess = {
         console.log(json);
         try {
             const res = await checkout(json);
-            console.log(res);
+            localStorage.clear();
+            window.open("success.html", "_self");
         } catch (err) {
-            console.log(err + " loco");
+            console.log(err);
         }
     },
 };
