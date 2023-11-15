@@ -1,5 +1,5 @@
 import { alertMessage, setLocalStorage, getLocalStorage } from "./utils.mjs";
-import { loginRequest} from "./externalServices.mjs";
+import { loginRequest } from "./externalServices.mjs";
 import { jwtDecode } from "jwt-decode";
 
 const tokenKey = "so-token";

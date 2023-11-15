@@ -6,7 +6,6 @@ loadHeaderFooter();
 const redirect = getParam("redirect");
 
 document.querySelector('#loginBtn').addEventListener('click', (e) => {
-    e.preventDefault();
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password").value;
     login({ email, password }, redirect);
